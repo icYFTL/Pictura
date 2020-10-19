@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  server:
+    image: pictura
+    build: .
+    command: python3 Pictura.py
+    restart: always

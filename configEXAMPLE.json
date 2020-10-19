@@ -1,0 +1,23 @@
+{
+  "db_user": "",
+  "db_password": "",
+  "db_host": "",
+  "db_port": 0,
+  "db_name": "",
+  "tg_token": "",
+  "msg": {
+    "en": {
+      "on_start": "Welcome to picturaBot\\.\nThis bot can transfer telegram stickers to VK\\.\nAt the beginning\\: send me your VK token, which can be got [here](https://oauth.vk.com/authorize?client_id=6949573&scope=65540&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1)\\.",
+      "on_good_token": "Token accepted.",
+      "on_bad_token": "Invalid token. Try again.",
+      "also_know": "I also know you.\nThere's no reason to start our relationship again.",
+      "collect_new_pack_button": "Collect",
+      "cancel_button": "Cancel",
+      "send_sticker": "Send me sticker pack name",
+      "register_first": "Type /start and register first.",
+      "give_album_name": "Give a name to the album with stickers\nSend me 'y', if you choose default name\nDefault: {name}",
+      "transfer_started": "Transfer started",
+      "transfer_done": "Transfer done.\nBroken stickers={broken}"
+    }
+  }
+}
