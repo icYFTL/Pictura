@@ -5,3 +5,10 @@ services:
     build: .
     command: python3 Pictura.py
     restart: always
+    depends_on:
+      - w2j
+  w2j:
+    image: w2j
+    build: W2J
+    command: python3 W2J.py
+

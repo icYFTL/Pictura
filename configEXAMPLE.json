@@ -5,6 +5,8 @@
   "db_port": 0,
   "db_name": "",
   "tg_token": "",
+  "w2j_url": "",
+  "w2j_key": "",
   "msg": {
     "en": {
       "on_start": "Welcome to picturaBot\\.\nThis bot can transfer telegram stickers to VK\\.\nAt the beginning\\: send me your VK token, which can be got [here](https://oauth.vk.com/authorize?client_id=6949573&scope=65540&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1)\\.",
