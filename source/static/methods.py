@@ -18,4 +18,4 @@ def webp_to_png(img: BytesIO) -> str:
     filename = f'temp{uuid4().hex}.jpeg'  # I will optimize it later. Probably.
 
     open(path.join('tmp', filename), 'wb').write(decodebytes(r.text.encode()))
-    return filename
+    return path.join('tmp', filename)

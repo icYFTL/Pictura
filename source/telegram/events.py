@@ -96,11 +96,13 @@ async def on_any(message: Message):
             stickers = await bot.get_sticker_set(event.objects['collection_name'])
             io_stickers = list()
             await message.answer(msg['transfer_started'])
+            del_event(message.from_user.id)
             for sticker in stickers.values['stickers']:
                 io_object = io.BytesIO()
                 await bot.download_file_by_id(sticker.file_id, io_object)
                 io_stickers.append(io_object)
             Thread(target=transfer, args=(io_stickers, name, user)).start()
+
 
 def transfer(io_stickers, album_name, user):
     VK(token=user.token).transfer(

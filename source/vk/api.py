@@ -3,11 +3,13 @@ import requests
 from time import sleep
 from source.static.methods import webp_to_png
 from os import remove
+import logging
 
 
 class VkApi:
     def __init__(self, token: str):
         self.vk = vk_api.VkApi(token=token)
+        self.logger = logging.getLogger('vk')
 
     def get_self_id(self) -> int:
         return self.vk.method('users.get')[0]['id']
@@ -45,8 +47,9 @@ class VkApi:
                     'hash': result['hash']
                 })
                 sleep(0.4)
-            except:
+            except Exception as e:
                 broken += 1
+                self.logger.error(e)
                 continue
         return broken
 
