@@ -49,6 +49,7 @@ class VkApi:
                 sleep(0.4)
             except Exception as e:
                 broken += 1
+                remove(photo)
                 self.logger.error(e)
                 continue
         return broken
