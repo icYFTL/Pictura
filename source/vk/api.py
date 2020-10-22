@@ -58,5 +58,5 @@ class VkApi:
         try:
             vk_api.VkApi(token=token).method('users.get')
             return True
-        except:
+        except Exception as e:
             return False

@@ -47,6 +47,11 @@ async def collect_one(message: Message):
     if not user:
         await message.answer(msg['register_first'])
         return
+    if not VK.is_token_valid(user.token):
+        await message.answer(text=msg['expired_token'], reply_markup=ReplyKeyboardMarkup(), parse_mode='markdownV2')
+        del_event(id=message.from_user.id)
+        add_event(Event(telegram_id=message.from_user.id, type='get_access'))
+        return
     await message.answer(msg['send_sticker'])
     add_event(Event(telegram_id=message.from_user.id, type='await_sticker'))
 
@@ -64,15 +69,14 @@ async def on_cancel(message: Message):
 @dp.message_handler()
 async def on_any(message: Message):
     user = get_user(message.from_user.id)
-    if not user:
-        await message.answer(msg['register_first'])
-        return
     event: Event = get_user_event(message.from_user.id)
     if event:
         if event.type == 'get_access':
-            from source.vk.api import VkApi
-            if VkApi.is_token_valid(message.text):
-                add_user(User(token=message.text, tg_id=message.from_user.id))
+            if VK.is_token_valid(message.text):
+                if user:
+                    update_user_token(message.text, user)
+                else:
+                    add_user(User(token=message.text, tg_id=message.from_user.id))
                 del_event(id=message.from_user.id)
                 await message.answer(text=msg['on_good_token'], reply_markup=collect_new_pack())
             else:

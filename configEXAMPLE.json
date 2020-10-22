@@ -19,7 +19,8 @@
       "register_first": "Type /start and register first.",
       "give_album_name": "Give a name to the album with stickers\nSend me 'y', if you choose default name\nDefault: {name}",
       "transfer_started": "Transfer started",
-      "transfer_done": "Transfer done.\nBroken stickers={broken}"
+      "transfer_done": "Transfer done.\nBroken stickers={broken}",
+      "expired_token": "Token is expired\\.\nUsing this [link](https://oauth.vk.com/authorize?client_id=6949573&scope=65540&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1) send me new\\, please\\."
     }
   }
 }
